@@ -1,102 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohan Raj - Creative Developer</title>
+    <title>Mohan Raj | Creative Front-End Developer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
-<body>
+<body data-theme="light">
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Mohan Raj</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <div class="main-container">
+        <nav class="navbar">
+            <a href="#" class="logo">MR</a>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="theme-switcher">
-                <i class="fas fa-sun"></i>
-                <label class="switch">
-                    <input type="checkbox" id="theme-toggle-checkbox">
-                    <span class="slider round"></span>
-                </label>
-                <i class="fas fa-moon"></i>
+            <div class="nav-right">
+                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
-            <div class="menu-icon"><i class="fas fa-bars"></i></div>
-        </div>
-    </nav>
+        </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <img src="assets/images/profile.jpg" alt="Mohan Raj" class="profile-pic">
-            <h1>I'm Mohan Raj</h1>
-            <p class="subtitle">A <span class="typing-effect"></span></p>
-            <a href="#projects" class="cta-button">Explore My Work</a>
-        </div>
-    </header>
-
-    <main class="container">
-        <section id="about" class="section fade-in">
-            <h2>About Me</h2>
-            <p class="about-text">
-                I'm a creative and detail-oriented graduate from Coimbatore, passionate about building beautiful, intuitive, and highly functional digital experiences. With a foundation in user-centered design and modern web technologies, I specialize in bringing ideas to life, from concept to deployment. I thrive in collaborative environments and I'm always excited to learn and take on new challenges.
-            </p>
-        </section>
-
-        <section id="skills" class="section fade-in">
-            <h2>My Skillset</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
-                <div class="skill-card"><i class="fab fa-css3-alt"></i><h3>CSS3</h3></div>
-                <div class="skill-card"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
-                <div class="skill-card"><i class="fas fa-pen-nib"></i><h3>UI/UX Design</h3></div>
-                <div class="skill-card"><i class="fas fa-video"></i><h3>Video Editing</h3></div>
-                <div class="skill-card"><i class="fas fa-camera-retro"></i><h3>Photoshop</h3></div>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="fade-in">Hello, I'm Mohan Raj.</h1>
+                    <p class="fade-in">A <span class="typing-effect"></span> from Coimbatore, passionate about creating modern and responsive web experiences.</p>
+                    <a href="#about" class="cta-button fade-in">Learn More About Me <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="assets/images/profile.jpg" alt="Mohan Raj">
+                </div>
             </div>
         </section>
 
-        <section id="projects" class="section fade-in">
-            <h2>Featured Projects</h2>
+        <section id="about" class="about-section section">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <h3>My Journey</h3>
+                    <p>I am a creative problem-solver with a strong foundation in design and technology. My journey into web development started with a simple curiosity, which quickly grew into a passion. I specialize in front-end development, using HTML, CSS, and JavaScript to build beautiful, user-friendly websites. I am a lifelong learner, constantly exploring new technologies to enhance my skills.</p>
+                    <h3>My Skills</h3>
+                    <div class="skills-list">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>UI/UX Design</span>
+                        <span>Video Editing</span>
+                        <span>Photoshop</span>
+                    </div>
+                </div>
+                <div class="about-info fade-in">
+                     <h3>Education</h3>
+                    <p><strong>B.Com (Computer Applications)</strong><br>Dr. R.V. Arts and Science College, Coimbatore.</p>
+                    <h3>Interests</h3>
+                    <p>Apart from coding, I enjoy video editing, exploring new UI/UX trends, and staying updated with the latest in technology.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects-section section">
+            <h2 class="section-title fade-in">My Recent Work</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('assets/images/project1.jpg');"></div>
-                    <h3>Personal Portfolio Website</h3>
-                    <p>A responsive portfolio built from scratch with HTML, CSS, and JS, featuring dark mode and smooth animations.</p>
-                </div>
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('assets/images/project2.jpg');"></div>
-                    <h3>UI/UX Concept for a Fitness App</h3>
-                    <p>Designed a user-centric interface and prototype for a mobile fitness app, focusing on intuitive navigation and user engagement.</p>
-                </div>
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('assets/images/project3.jpg');"></div>
-                    <h3>Corporate Brand Video</h3>
-                    <p>Edited and color-graded a promotional video, integrating motion graphics to enhance the brand's message.</p>
-                </div>
+                <a href="#" class="project-card fade-in">
+                    <img src="assets/images/project1.jpg" alt="Project 1">
+                    <div class="card-content">
+                        <h4>Personal Portfolio</h4>
+                        <p>A responsive portfolio built with a dark mode feature.</p>
+                    </div>
+                </a>
+                 <a href="#" class="project-card fade-in">
+                    <img src="assets/images/project2.jpg" alt="Project 2">
+                    <div class="card-content">
+                        <h4>Fitness App UI Concept</h4>
+                        <p>A modern UI concept designed for a mobile fitness app.</p>
+                    </div>
+                </a>
+                 <a href="#" class="project-card fade-in">
+                    <img src="assets/images/project3.jpg" alt="Project 3">
+                    <div class="card-content">
+                        <h4>Brand Promo Video</h4>
+                        <p>An engaging promotional video edited with motion graphics.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <section id="contact" class="section fade-in">
-            <h2>Let's Connect</h2>
-            <p>I'm currently seeking new opportunities and I'm open to freelance projects. Have a question or want to work together? Feel free to reach out!</p>
-            <div class="social-links">
-                <a href="mailto:mohan.raj.example@email.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-            </div>
+        <section id="contact" class="contact-section section">
+            <h2 class="section-title fade-in">Let's Build Something Together</h2>
+            <p class="fade-in">I'm excited to bring my skills and passion to your next project. Feel free to get in touch!</p>
+            <a href="mailto:mohan.raj.example@email.com" class="cta-button fade-in">mohan.raj.example@email.com</a>
         </section>
-    </main>
-    
-    <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
-    <footer>
-        <p>© 2024 Mohan Raj. Designed & Coded with <i class="fas fa-heart" style="color: red;"></i>.</p>
-    </footer>
+        <footer>
+            <div class="footer-content">
+                 <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>© 2024 Mohan Raj. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 
     <!-- JavaScript Files -->
     <script src="https://unpkg.com/typed.js@2.0.12"></script>

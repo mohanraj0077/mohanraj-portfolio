@@ -1,60 +1,78 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
 
-    const themeToggle = document.getElementById('theme-toggle-checkbox');
-    const currentTheme = localStorage.getItem('theme');
+    // --- Hamburger Menu for Mobile ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            themeToggle.checked = true;
-        }
-    }
-
-    themeToggle.addEventListener('change', function() {
-        if (this.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
 
-    const typingEffectSpan = document.querySelector('.typing-effect');
-    if (typingEffectSpan) {
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+
+    // --- Theme Toggler ---
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleButton.querySelector('i');
+    
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+    themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+    themeToggleButton.addEventListener('click', () => {
+        let currentTheme = document.body.getAttribute('data-theme');
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+    
+    // --- Typing Effect ---
+    if (typeof Typed !== 'undefined') {
         new Typed('.typing-effect', {
-            strings: ['Creative Developer.', 'Video Editor.', 'UI/UX Enthusiast.'],
+            strings: ['Front-End Developer.', 'Video Editor.', 'UI/UX Enthusiast.'],
             typeSpeed: 70,
             backSpeed: 50,
             loop: true
         });
     }
 
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
-    menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+    // --- Active Nav Link on Scroll ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
     });
 
+    // --- Intersection Observer for Fade-in Animation ---
     const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            appearOnScroll.unobserve(entry.target);
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
     }, appearOptions);
+
     faders.forEach(fader => { appearOnScroll.observe(fader); });
-
-    const backToTopButton = document.getElementById('backToTopBtn');
-    window.onscroll = () => {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopButton.style.display = "flex";
-        } else {
-            backToTopButton.style.display = "none";
-        }
-    };
-    backToTopButton.addEventListener('click', () => { window.scrollTo({top: 0, behavior: 'smooth'}); });
-
+    
 });
